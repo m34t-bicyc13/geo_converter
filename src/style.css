@@ -1,0 +1,172 @@
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --fg: #1d2129;
+  --muted: #6b7280;
+  --border: #dde1e6;
+  --hover: #eef0f3;
+  --accent: #2f6fde;
+  --accent-fg: #ffffff;
+  --accent-soft: #e5eefc;
+  --error: #c62828;
+  --badge-domain: #dcf2e3;
+  --badge-domain-fg: #1d6b38;
+  --badge-full: #e5eefc;
+  --badge-full-fg: #24529f;
+  --badge-skip: #fbe4e1;
+  --badge-skip-fg: #9c2b1d;
+  --mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+
+  color-scheme: light;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171c;
+    --panel: #1d2027;
+    --fg: #e3e6eb;
+    --muted: #8b93a1;
+    --border: #2e333d;
+    --hover: #262a32;
+    --accent: #5b8ff0;
+    --accent-fg: #0d1117;
+    --accent-soft: #23314d;
+    --error: #ef6f6f;
+    --badge-domain: #1d3a27;
+    --badge-domain-fg: #8fd6a6;
+    --badge-full: #1f2f4b;
+    --badge-full-fg: #9cbcf5;
+    --badge-skip: #44241f;
+    --badge-skip-fg: #f2a59a;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+h2 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+code,
+.mono {
+  font-family: var(--mono);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 12px;
+}
+.error {
+  color: var(--error);
+}
+.hint {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--badge-skip);
+  color: var(--badge-skip-fg);
+  margin: 0 0 6px;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+input[type='text'],
+input[type='url'],
+input[type='search'],
+input[type='number'],
+input:not([type]),
+select,
+textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+textarea {
+  resize: vertical;
+}
+
+button {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+button.secondary {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--border);
+}
+button.secondary:hover:not(:disabled) {
+  background: var(--hover);
+}
+button.icon {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 0 6px;
+  font-size: 16px;
+  line-height: 1;
+}
+button.icon:hover {
+  color: var(--error);
+}
+button.link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 0;
+}

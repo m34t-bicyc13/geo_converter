@@ -60,6 +60,11 @@ export interface ConvertResult {
   errors: string[]
 }
 
+function localDate(d: Date): string {
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
 /** Список upstream-адресов из строки: разделители — пробелы и переводы строк. */
 export function parseUpstreams(input: string): string[] {
   return input
@@ -165,7 +170,7 @@ export function convertToUpstream(sources: ConvertSource[], opts: ConvertOptions
 
   const lines: string[] = []
   if (opts.header) {
-    lines.push(`# geo-converter ${new Date().toISOString().slice(0, 10)}`)
+    lines.push(`# geo-converter ${localDate(new Date())}`)
     for (const src of sources) lines.push(`# ${src.label}`)
   }
   for (const line of opts.defaultUpstreams.split(/\r?\n/)) {
